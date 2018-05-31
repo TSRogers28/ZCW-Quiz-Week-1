@@ -8,7 +8,11 @@ public class LoopFun
        * @return the factorial of the number
        */
       public int factorial(int number){
-          return -1;
+          int fact = 1;
+          for (int x = 1; x <= number; x++){
+            fact = fact * x;
+            }
+          return fact;
       }
 
       /**
@@ -19,8 +23,19 @@ public class LoopFun
        * @return Upper case of the first letter of each word
        */
       public String acronym(String phrase) {
-          return null;
+          String result = "";
+          char[] acron = phrase.toCharArray();
+          for(char x = 0; x < acron.length; x++){
+            if (x == 0){
+            result += acron[x];
+            }
+            if (acron[x] == ' '){
+            result += acron[x+1];    
+            }
+          
       }
+            return result.toUpperCase();
+    }
 
       /**
        * To prevent anyone from reading our messages, we can encrypt it so it will not be readable by anyone except it
@@ -35,6 +50,22 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          return null;
+          char [] crypted = word.toCharArray();
+          for (int x = 0; x < crypted.length-1; x++){
+              if ( 'a' == crypted[x] || 'w'== crypted[x]|| 'x'== crypted[x] || 'y' == crypted[x]){
+                if (crypted[x+3] > crypted.length-1){
+                char temp = crypted[x];
+                crypted[x] = crypted[0];
+                crypted[0] = temp;
+                }  
+                char temp = crypted[x];
+                crypted[x] = crypted[x+3];
+                crypted[x+3] = temp;
+                
+                }
+            
+            }
+          return crypted.toString();
       }
-}
+    }
+
